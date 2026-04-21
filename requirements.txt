@@ -2,6 +2,6 @@ pandas
 numpy
 matplotlib
 seaborn
-talib
+pandas-ta
 ccxt
 xgboost
