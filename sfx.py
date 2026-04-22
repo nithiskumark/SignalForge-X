@@ -4,8 +4,10 @@ import talib as ta
 from xgboost import XGBRegressor
 
 
-def get_data(exchange, coin, tf):
-    exc = getattr(ccxt, exchange)()
+def get_data(coin, tf):
+    exc = ccxt.binance({
+    "enableRateLimit": True,
+    "timeout": 30000})
     data = exc.fetch_ohlcv(coin, tf)
     df = pd.DataFrame(data, columns=[
         'timestamp','open','high','low','close','volume'])

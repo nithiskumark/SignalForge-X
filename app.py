@@ -13,8 +13,8 @@ coin = st.text_input("Write the Coin you want to predict eg.BTC/USDT")
 tf = "5m"
 
 @st.cache_data(ttl=120)  
-def load_data(exchange, coin, tf):
-    return get_data(exchange, coin, tf)
+def load_data(coin, tf):
+    return get_data(coin, tf)
 
 @st.cache_data
 def feature(df):
@@ -28,7 +28,7 @@ def ml2(df, steps):
     return train_model(df, steps)
 
 if exchange and coin and tf:
-    df = load_data(exchange,coin,tf)
+    df = load_data(coin,tf)
     st.subheader("Sample Data")
     st.dataframe(df.tail())
     df = feature(df)
