@@ -2,7 +2,7 @@ pandas
 numpy
 matplotlib
 seaborn
-pandas-ta
+TA-Lib
 ccxt
 xgboost
 streamlit
