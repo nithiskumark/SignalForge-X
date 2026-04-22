@@ -5,9 +5,7 @@ from xgboost import XGBRegressor
 
 
 def get_data(coin, tf):
-    exc = ccxt.binance({
-    "enableRateLimit": True,
-    "timeout": 30000})
+    exc = ccxt.bybit()
     data = exc.fetch_ohlcv(coin, tf)
     df = pd.DataFrame(data, columns=[
         'timestamp','open','high','low','close','volume'])
